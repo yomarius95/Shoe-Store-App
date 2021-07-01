@@ -1,3 +1,15 @@
 <resources>
     <string name="app_name">ShoeStore</string>
+    <string name="password_label_text">Password:</string>
+    <string name="email_label_text">Email:</string>
+    <string name="login_text">LOGIN</string>
+    <string name="sign_up_text">SIGN UP</string>
+    <string name="email_hint">name@example.com</string>
+    <string name="password_hint">Enter your password</string>
+    <string name="welcome_title_string">Welcome</string>
+    <string name="welcome_message_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum sagittis, urna at consectetur auctor, nulla mauris sollicitudin ligula, in egestas nunc leo at mauris. Vestibulum a dignissim leo. Maecenas scelerisque condimentum est. Praesent placerat arcu vel suscipit interdum. Integer gravida fringilla sem ut convallis. Cras elementum egestas interdum. Duis dolor.</string>
+    <string name="instructions_button_text">INSTRUCTIONS</string>
+    <string name="instructions_title_string">Instructions</string>
+    <string name="instructions_message_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque porta nisl sit amet eleifend. Curabitur condimentum massa ligula, a venenatis lacus dapibus ut. Sed sit amet pulvinar magna. Curabitur pharetra, sapien eu pretium ultricies, nisi eros eleifend nunc, eget pharetra felis purus eleifend mi. Cras sit amet auctor lacus.</string>
+    <string name="finish_button_text">FINISH</string>
 </resources>
