@@ -1,5 +1,6 @@
 package com.udacity.shoestore.screens.login
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -15,7 +16,7 @@ class LoginFragment : Fragment() {
     private lateinit var binding: FragmentLoginBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+                              savedInstanceState: Bundle?): View {
 
         // Inflate view and obtain an instance of the binding class
         binding = DataBindingUtil.inflate(
@@ -26,7 +27,17 @@ class LoginFragment : Fragment() {
         )
 
         binding.loginButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+            val sharedPref = context?.getSharedPreferences(
+                getString(R.string.preference_file_key), Context.MODE_PRIVATE
+            )
+            val onboardingFlag : Boolean? = sharedPref?.getBoolean(getString(R.string.onboarding_flag_key), false)
+            if (onboardingFlag!!) {
+                v.findNavController()
+                    .navigate(LoginFragmentDirections.actionLoginFragmentToShoeListFragment())
+            } else {
+                v.findNavController()
+                    .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+            }
         }
         binding.singUpButton.setOnClickListener { v: View ->
             v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())

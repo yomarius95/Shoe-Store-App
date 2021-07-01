@@ -12,4 +12,6 @@
     <string name="instructions_title_string">Instructions</string>
     <string name="instructions_message_string">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pellentesque porta nisl sit amet eleifend. Curabitur condimentum massa ligula, a venenatis lacus dapibus ut. Sed sit amet pulvinar magna. Curabitur pharetra, sapien eu pretium ultricies, nisi eros eleifend nunc, eget pharetra felis purus eleifend mi. Cras sit amet auctor lacus.</string>
     <string name="finish_button_text">FINISH</string>
+    <string name="preference_file_key">preference_file</string>
+    <string name="onboarding_flag_key">onboarding_flag</string>
 </resources>
