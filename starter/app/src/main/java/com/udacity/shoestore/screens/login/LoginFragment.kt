@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.navigation.findNavController
+import androidx.navigation.Navigation
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.FragmentLoginBinding
 
@@ -26,21 +26,19 @@ class LoginFragment : Fragment() {
             false
         )
 
-        binding.loginButton.setOnClickListener { v: View ->
-            val sharedPref = context?.getSharedPreferences(
-                getString(R.string.preference_file_key), Context.MODE_PRIVATE
-            )
-            val onboardingFlag : Boolean? = sharedPref?.getBoolean(getString(R.string.onboarding_flag_key), false)
-            if (onboardingFlag!!) {
-                v.findNavController()
-                    .navigate(LoginFragmentDirections.actionLoginFragmentToShoeListFragment())
-            } else {
-                v.findNavController()
-                    .navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
-            }
-        }
-        binding.singUpButton.setOnClickListener { v: View ->
-            v.findNavController().navigate(LoginFragmentDirections.actionLoginFragmentToWelcomeFragment())
+        val sharedPref = context?.getSharedPreferences(
+            getString(R.string.preference_file_key), Context.MODE_PRIVATE
+        )
+        val onboardingFlag : Boolean? = sharedPref?.getBoolean(getString(R.string.onboarding_flag_key), false)
+
+        if (onboardingFlag!!) {
+            val loginToShoeList = Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_shoeListFragment)
+            binding.loginButton.setOnClickListener(loginToShoeList)
+            binding.singUpButton.setOnClickListener(loginToShoeList)
+        } else {
+            val loginToWelcome = Navigation.createNavigateOnClickListener(R.id.action_loginFragment_to_welcomeFragment)
+            binding.loginButton.setOnClickListener(loginToWelcome)
+            binding.singUpButton.setOnClickListener(loginToWelcome)
         }
 
         return binding.root
