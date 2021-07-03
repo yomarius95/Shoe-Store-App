@@ -5,4 +5,7 @@
     <item
         android:id="@+id/loginFragment"
         android:title="@string/logout_string" />
+    <item
+        android:id="@+id/instructionsFragment"
+        android:title="@string/instructions_title_string" />
 </menu>

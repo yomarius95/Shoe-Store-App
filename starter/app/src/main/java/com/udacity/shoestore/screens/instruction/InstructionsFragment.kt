@@ -26,10 +26,17 @@ class InstructionsFragment : Fragment() {
             false
         )
 
+        val sharedPref = context?.getSharedPreferences(
+            getString(R.string.preference_file_key), Context.MODE_PRIVATE
+        )
+        val onboardingFlag : Boolean? = sharedPref?.getBoolean(getString(R.string.onboarding_flag_key), false)
+
+        // Hide finishButton to avoid unwanted backstack behaviour
+        if (onboardingFlag == true) {
+            binding.finishButton.visibility = View.GONE
+        }
+
         binding.finishButton.setOnClickListener { v : View ->
-            val sharedPref = context?.getSharedPreferences(
-                getString(R.string.preference_file_key), Context.MODE_PRIVATE
-            )
             with(sharedPref?.edit()) {
                 this?.putBoolean(getString(R.string.onboarding_flag_key), true)
                 this?.apply()
