@@ -15,4 +15,11 @@
     <string name="preference_file_key">preference_file</string>
     <string name="onboarding_flag_key">onboarding_flag</string>
     <string name="logout_string">Logout</string>
+    <string name="fab_button_content_description">Add Shoe Button</string>
+    <string name="label_description">Description</string>
+    <string name="label_size">Size</string>
+    <string name="label_company">Company</string>
+    <string name="label_name">Name</string>
+    <string name="cancel_button_text">CANCEL</string>
+    <string name="save_button_text">SAVE</string>
 </resources>

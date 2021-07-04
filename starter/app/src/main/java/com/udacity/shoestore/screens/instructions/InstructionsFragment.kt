@@ -1,4 +1,4 @@
-package com.udacity.shoestore.screens.instruction
+package com.udacity.shoestore.screens.instructions
 
 import android.content.Context
 import android.os.Bundle
