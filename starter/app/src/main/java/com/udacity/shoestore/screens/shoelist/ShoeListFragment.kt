@@ -4,20 +4,23 @@ import android.os.Bundle
 import android.view.*
 import androidx.fragment.app.Fragment
 import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.activityViewModels
+import androidx.lifecycle.Observer
 import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
+import com.udacity.shoestore.SharedViewModel
 import com.udacity.shoestore.databinding.FragmentShoeListBinding
 
 class ShoeListFragment : Fragment() {
 
-    private lateinit var binding: FragmentShoeListBinding
+    private val viewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
         // Inflate view and obtain an instance of the binding class
-        binding = DataBindingUtil.inflate(
+        val binding: FragmentShoeListBinding = DataBindingUtil.inflate(
             inflater,
             R.layout.fragment_shoe_list,
             container,
@@ -27,7 +30,13 @@ class ShoeListFragment : Fragment() {
         setHasOptionsMenu(true)
 
         binding.addShoeButton.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_shoeListFragment_to_detailsFragment))
-        binding.shoeList.adapter = ShoeAdapter()
+
+        val adapter = ShoeAdapter()
+        binding.shoeList.adapter = adapter
+
+        viewModel.shoeList.observe(viewLifecycleOwner, Observer {
+            adapter.submitList(it)
+        })
 
         return binding.root
     }

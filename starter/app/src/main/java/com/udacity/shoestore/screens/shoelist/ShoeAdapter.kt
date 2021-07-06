@@ -4,28 +4,22 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.udacity.shoestore.R
 import com.udacity.shoestore.models.Shoe
 
-class ShoeAdapter : RecyclerView.Adapter<ShoeAdapter.ViewHolder>() {
-
-    var dataShoeList = listOf<Shoe>(Shoe("Adidas Neo", 8.5, "Adidas", "Description"),
-        Shoe("Adidas Neo", 8.5, "Adidas", "Description"),
-        Shoe("Adidas Neo", 8.5, "Adidas", "Description"),
-        Shoe("Adidas Neo", 8.5, "Adidas", "Description"),
-        Shoe("Adidas Neo", 8.5, "Adidas", "Description"))
+class ShoeAdapter : ListAdapter<Shoe, ShoeAdapter.ViewHolder>(ShoeDiffCallback()) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder.from(parent)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = dataShoeList[position]
+        val item = getItem(position)
         holder.bind(item)
     }
-
-    override fun getItemCount() = dataShoeList.size
 
     class ViewHolder private constructor(itemView: View): RecyclerView.ViewHolder(itemView) {
         val shoeName: TextView = itemView.findViewById(R.id.shoe_name)
@@ -46,6 +40,16 @@ class ShoeAdapter : RecyclerView.Adapter<ShoeAdapter.ViewHolder>() {
                     .inflate(R.layout.list_item_shoe, parent, false)
                 return ViewHolder(view)
             }
+        }
+    }
+
+    class ShoeDiffCallback : DiffUtil.ItemCallback<Shoe>() {
+        override fun areItemsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
+            return oldItem.shoeId == newItem.shoeId
+        }
+
+        override fun areContentsTheSame(oldItem: Shoe, newItem: Shoe): Boolean {
+            return oldItem == newItem
         }
     }
 }
