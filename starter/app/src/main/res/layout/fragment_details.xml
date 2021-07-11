@@ -7,28 +7,31 @@
             name="viewModel"
             type="com.udacity.shoestore.SharedViewModel" />
     </data>
-    
+
+    <!--Faster and easier responsive layout (Using Design editor)-->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <!--Easier to group and align items together-->
         <LinearLayout
             android:id="@+id/nameLayout"
+            style="@style/AppTheme.input_layout"
+            android:layout_marginTop="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            style="@style/input_layout">
+            app:layout_constraintTop_toTopOf="parent">
 
             <TextView
-                style="@style/label_style"
+                style="@style/AppTheme.label_style"
                 android:labelFor="@id/name_edit_text"
                 android:text="@string/label_name" />
 
             <EditText
                 android:id="@+id/name_edit_text"
-                style="@style/edit_style.text"
-                android:text="@={viewModel.shoe.name}"
-                android:importantForAutofill="no" />
+                style="@style/AppTheme.edit_style.text"
+                android:importantForAutofill="no"
+                android:text="@={viewModel.shoe.name}" />
         </LinearLayout>
 
         <LinearLayout
@@ -36,16 +39,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/nameLayout"
-            style="@style/input_layout">
+            style="@style/AppTheme.input_layout">
 
             <TextView
-                style="@style/label_style"
+                style="@style/AppTheme.label_style"
                 android:labelFor="@id/company_edit_text"
                 android:text="@string/label_company" />
 
             <EditText
                 android:id="@+id/company_edit_text"
-                style="@style/edit_style.text"
+                style="@style/AppTheme.edit_style.text"
                 android:text="@={viewModel.shoe.company}"
                 android:importantForAutofill="no"/>
         </LinearLayout>
@@ -55,16 +58,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/companyLayout"
-            style="@style/input_layout">
+            style="@style/AppTheme.input_layout">
 
             <TextView
-                style="@style/label_style"
+                style="@style/AppTheme.label_style"
                 android:labelFor="@id/size_edit_text"
                 android:text="@string/label_size" />
 
             <EditText
                 android:id="@+id/size_edit_text"
-                style="@style/edit_style.numberDecimal"
+                style="@style/AppTheme.edit_style.numberDecimal"
                 android:text="@={`` + viewModel.shoe.size}"
                 android:importantForAutofill="no"/>
         </LinearLayout>
@@ -74,16 +77,16 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/sizeLayout"
-            style="@style/input_layout">
+            style="@style/AppTheme.input_layout">
 
             <TextView
-                style="@style/label_style"
+                style="@style/AppTheme.label_style"
                 android:labelFor="@id/description_edit_text"
                 android:text="@string/label_description" />
 
             <EditText
                 android:id="@+id/description_edit_text"
-                style="@style/edit_style.text"
+                style="@style/AppTheme.edit_style.text"
                 android:text="@={viewModel.shoe.description}"
                 android:importantForAutofill="no" />
         </LinearLayout>
@@ -92,23 +95,27 @@
             android:id="@+id/cancel_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp"
             android:text="@string/cancel_button_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.2"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionLayout" />
 
         <Button
             android:id="@+id/save_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:layout_marginBottom="24dp"
             android:text="@string/save_button_text"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.8"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/descriptionLayout" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

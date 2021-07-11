@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--Easier to group and align items together. -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -14,15 +15,11 @@
 
         <TextView
             android:id="@+id/shoe_name"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            style="@style/AppTheme.list_item_text" />
 
         <TextView
             android:id="@+id/shoe_company"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            style="@style/AppTheme.list_item_text" />
     </LinearLayout>
 
     <LinearLayout
@@ -32,14 +29,10 @@
 
         <TextView
             android:id="@+id/shoe_size"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            style="@style/AppTheme.list_item_text" />
 
         <TextView
             android:id="@+id/shoe_description"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"/>
+            style="@style/AppTheme.list_item_text" />
     </LinearLayout>
 </LinearLayout>
